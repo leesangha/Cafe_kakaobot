@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+        <script>
+
+            function insert(){
+                console.log('insert');
+                var data = {data:document.getElementById('input').value};
+                fetch('http://localhost:3000/insert',{
+                    method:'POST',
+                    headers:{
+                        'Content-Type':'application/json',
+                    },
+                    body:JSON.stringify(data)
+                }).then(res=>console.log(res));
+            }
+
+            function del(){
+                console.log('del');
+                fetch('http://localhost:3000/del',{
+
+                });
+            }
+        </script>
+        after token
+    </head>
+    <body>
+        <input type="text" style="width: 200px;" id='input'/>
+        <button onclick="insert()">키워드 추가 </button>
+        <button onclick="del()">키워드 삭제 </button>
+        <div id='box'>
+
+        </div>
+    </body>
+</html>
